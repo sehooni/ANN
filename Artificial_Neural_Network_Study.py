@@ -76,6 +76,9 @@ sc = StandardScaler()
 X_train = sc.fit_transform(X_train)
 X_test = sc.transform(X_test)
 
+print(len(X_train))
+print(len(X_test))
+
 
 # ----------------------- Building the model ----------------------- #
 
@@ -115,10 +118,10 @@ ann.fit(X_train, y_train, batch_size = 32, epochs = 100)
 # the goal is to use this ANN model to predict the probability of the customer leaving the bank
 # Predicting the churn probability(가입 해지율) for single observation
 
-# Geography: French
+# Geography: French 1
 # Credit Score: 600
-# Gender: Male
-# Age: 40 years old
+# Gender: Male 1
+# Age: 40 years old![](C:/Users/Sehooni/AppData/Local/Temp/googlelogo_color_92x30dp.png)
 # Tenure: 3 years
 # Balance: $60,000
 # Number of Products: 2
@@ -126,8 +129,8 @@ ann.fit(X_train, y_train, batch_size = 32, epochs = 100)
 # Active member
 # Estimated Salary: $50,000
 
-print(ann.predict(sc.transform([[1, 0, 0, 600, 1, 40, 3, 60000, 2, 1, 1, 50000]])))
-print(ann.predict(sc.transform([[1, 0, 0, 600, 1, 40, 3, 60000, 2, 1, 1, 50000]])) > 0.5)
+# print(ann.predict(sc.transform([[1, 0, 0, 600, 1, 40, 3, 60000, 2, 1, 1, 50000]])))
+# print(ann.predict(sc.transform([[1, 0, 0, 600, 1, 40, 3, 60000, 2, 1, 1, 50000]])) > 0.5)
 # this customer has 2% chance to leave the bank
 
 
@@ -137,12 +140,13 @@ y_pred_prob = ann.predict(X_test)
 
 # probabilities to binary
 y_pred = (y_pred_prob > 0.5)
-print(np.concatenate((y_pred.reshape(len(y_pred),1), y_test.reshape(len(y_test),1)), 1))
+# print(np.concatenate((y_pred.reshape(len(y_pred),1), y_test.reshape(len(y_test),1)), 1))
     ## concatenate: 선택한 축(axis)의 방향으로 배열을 연결해주는 메소드
     ## concatenate((배열, 배열), 축)
     ## 이때 axis = 1이면, 열방향(좌 → 우)을 의미
-
-# Confusion Matrix
-confusion_matrix = confusion_matrix(y_test, y_pred)
-print("Confusion Matrix", confusion_matrix)
-print("Accuracy Score", accuracy_score(y_test, y_pred))
+# print('y_test:', y_test)
+print('y_pred:', y_pred)
+# # Confusion Matrix
+# confusion_matrix = confusion_matrix(y_test, y_pred)
+# print("Confusion Matrix", confusion_matrix)
+# print("Accuracy Score", accuracy_score(y_test, y_pred))
