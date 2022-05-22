@@ -129,8 +129,8 @@ ann.fit(X_train, y_train, batch_size = 32, epochs = 100)
 # Active member
 # Estimated Salary: $50,000
 
-# print(ann.predict(sc.transform([[1, 0, 0, 600, 1, 40, 3, 60000, 2, 1, 1, 50000]])))
-# print(ann.predict(sc.transform([[1, 0, 0, 600, 1, 40, 3, 60000, 2, 1, 1, 50000]])) > 0.5)
+print(ann.predict(sc.transform([[1, 0, 0, 600, 1, 40, 3, 60000, 2, 1, 1, 50000]])))
+print(ann.predict(sc.transform([[1, 0, 0, 600, 1, 40, 3, 60000, 2, 1, 1, 50000]])) > 0.5)
 # this customer has 2% chance to leave the bank
 
 
@@ -144,9 +144,9 @@ y_pred = (y_pred_prob > 0.5)
     ## concatenate: 선택한 축(axis)의 방향으로 배열을 연결해주는 메소드
     ## concatenate((배열, 배열), 축)
     ## 이때 axis = 1이면, 열방향(좌 → 우)을 의미
-# print('y_test:', y_test)
+print('y_test:', y_test)
 print('y_pred:', y_pred)
-# # Confusion Matrix
-# confusion_matrix = confusion_matrix(y_test, y_pred)
-# print("Confusion Matrix", confusion_matrix)
-# print("Accuracy Score", accuracy_score(y_test, y_pred))
+# Confusion Matrix
+confusion_matrix = confusion_matrix(y_test, y_pred)
+print("Confusion Matrix", confusion_matrix)
+print("Accuracy Score", accuracy_score(y_test, y_pred))
